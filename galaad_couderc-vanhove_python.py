@@ -14,12 +14,12 @@ def regles():
 motsPossibles = ["wapiti","gloire","donjon","survie","joyeux","kayaks","humain","ocelot","oiseau"]
 motAleatoire = random.choice(motsPossibles)
 tour = 0
-motJoueur = input("Ecrivez un mot en 6 lettres")
+motJoueur = input("Ecrivez un mot en 6 lettres : ")
 def verification(motAleatoire):
     if (len(motJoueur) < 6):
-        input("Ecrivez un mot en 6 lettres")
+        input("Ecrivez un mot en 6 lettres : ")
     if (len(motJoueur) < 6):
-        input("Ecrivez un mot en 6 lettres")
+        input("Ecrivez un mot en 6 lettres : ")
    
 while (tour < 9):
     for i in range(0,6):
