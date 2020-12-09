@@ -5,7 +5,7 @@ import random
 
 def regles(tour):
     print("  __________________________________________________________________________")
-    print(" | - Essayez de deviner le mot en 6 lettres                                 |")
+    print(" | - Essayez de deviner le mot en 6 lettres                                 |")     # règles / infos utiles pour jouer
     print(" | - Si une lettre apparaît en ROUGE, c'est qu'elle est bien placée         |")
     print(" | - Si une lettre apparaît en JAUNE, c'est qu'elle n'est pas bien placée   |")
     print(" | - Si une lettre apparaît en BLEU, c'est qu'elle n'est pas dans le mot    |")
@@ -14,6 +14,7 @@ def regles(tour):
     print(" |__________________________________________________________________________|")
     print("Tour n°",tour)
 
+#----------déclaration de variables/tableau + application fonction regles-----------
 tour = 1
 regles(tour)
 motsPossibles = ["wapiti","gloire","donjon","survie","joyeux","kayaks","humain","ocelot","oiseau","castor","cinema","citron"]
@@ -21,6 +22,7 @@ motAleatoire = random.choice(motsPossibles)
 motJoueur = ("")
 victoire = False
 
+#----------fonction de victoire----------
 def victoire(motJoueur, motAleatoire, victoire, tour):
     if (motJoueur == motAleatoire):
         victoire = True
@@ -31,6 +33,7 @@ def victoire(motJoueur, motAleatoire, victoire, tour):
     verification(motJoueur, motAleatoire,tour, victoire)
     return motJoueur, motAleatoire
 
+#----------fonction jeu----------
 def verification(motJoueur, motAleatoire,tour, victoire):
     while (tour < 8 and victoire != False):
         motJoueur = input("Ecrivez un mot en 6 lettres : ")
@@ -43,11 +46,13 @@ def verification(motJoueur, motAleatoire,tour, victoire):
                 print(Back.RED + motJoueur[i], end=" ")
             if motJoueur[i] != motAleatoire[i]:
                 print(Back.BLUE + motJoueur[i], end=" ")
+#            if motJoueur[i] != motAleatoire[1], motAleatoire[2], motAleatoire[3], motAleatoire[4], motAleatoire[5], motAleatoire[6]:
+#                print(Back.YELLOW + motJoueur[i], end=" ")
             print(Style.RESET_ALL)
         victoire(motJoueur, motAleatoire, victoire, tour)
     print("Perdu!!!")
     return motJoueur, motAleatoire
-
+#----------application fonction de jeu----------
 verification(motJoueur, motAleatoire,tour, victoire)
 
 input()
