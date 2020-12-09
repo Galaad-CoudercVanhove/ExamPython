@@ -11,10 +11,12 @@ def regles():
     print("Vous avez 8 chances pour trouver le bon mot")
     print("Le mot peut être au pluriel")
 
+regles()
 motsPossibles = ["wapiti","gloire","donjon","survie","joyeux","kayaks","humain","ocelot","oiseau"]
 motAleatoire = random.choice(motsPossibles)
 tour = 0
 motJoueur = input("Ecrivez un mot en 6 lettres : ")
+
 def verification(motAleatoire):
     if (len(motJoueur) < 6):
         input("Ecrivez un mot en 6 lettres : ")
@@ -24,9 +26,9 @@ def verification(motAleatoire):
 while (tour < 9):
     for i in range(0,6):
         if motJoueur[i] == motAleatoire[i]:
-            print(Back.RED + motJoueur)
+            print(Back.RED + motJoueur,end="")
         if motJoueur[i] != motAleatoire[i]:
-            print(Back.BLUE + motJoueur)
+            print(Back.BLUE + motJoueur,end="")
 
 
 
@@ -34,4 +36,8 @@ while (tour < 9):
 def victoire:
     if (motJoueur == motAleatoire):
         victoire = True
+    else:
+        tour = tour + 1
+        print("Tour n°",tour)
+        input("Ecrivez un autre mot en 6 lettres : ")
 input()
