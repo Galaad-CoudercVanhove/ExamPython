@@ -34,7 +34,7 @@ def verification(motJoueur, motAleatoire,tour, victoire):
     while (tour < 8 and victoire != False):
         if (len(motJoueur) < 6):
             motJoueur = input("Ecrivez un mot en 6 lettres : ")
-        if (len(motJoueur) < 6):
+        if (len(motJoueur) > 6):
             motJoueur = input("Ecrivez un mot en 6 lettres : ")
         for i in range(len(motJoueur)):
             if motJoueur[i] == motAleatoire[i]:
