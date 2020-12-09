@@ -12,8 +12,15 @@ def regles():
     print("Le mot peut être au pluriel")
 
 motsPossibles = ["wapiti","gloire","donjon","survie","joyeux","kayaks","humain","ocelot","oiseau"]
+motAleatoire = random.choice(motsPossibles)
 
-def motAleatoire():
-    motSecret = r
+motJoueur = input("Ecrivez un mot en 6 lettres")
+def verification(motAleatoire):    
+    if (len(motJoueur) < 6):
+        input("Ecrivez un mot en 6 lettres")
+    if (len(motJoueur) < 6):
+        input("Ecrivez un mot en 6 lettres")
+    else:
+        
 
 input()
