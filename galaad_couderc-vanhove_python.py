@@ -22,26 +22,29 @@ victoire = False
 def victoire(motJoueur, motAleatoire, victoire, tour):
     if (motJoueur == motAleatoire):
         victoire = True
+        input("Félicitation, vous avez trouvé le bon mot !")
     else:
         tour = tour + 1
         print("Tour n°",tour)
-        motJoueur = input("Ecrivez un autre mot en 6 lettres : ") 
+        motJoueur = input("Ecrivez un autre mot en 6 lettres : ")
+    verification(motJoueur, motAleatoire,tour, victoire)
     return motJoueur, motAleatoire
 
-def verification(motJoueur, motAleatoire,tour,victoire):
-    if (len(motJoueur) < 6):
-        input("Ecrivez un mot en 6 lettres : ")
-    if (len(motJoueur) < 6):
-        input("Ecrivez un mot en 6 lettres : ")
-    while (tour < 9 and victoire != True):
+def verification(motJoueur, motAleatoire,tour, victoire):
+    while (tour < 8 and victoire != False):
+        if (len(motJoueur) < 6):
+            motJoueur = input("Ecrivez un mot en 6 lettres : ")
+        if (len(motJoueur) < 6):
+            motJoueur = input("Ecrivez un mot en 6 lettres : ")
         for i in range(len(motJoueur)):
             if motJoueur[i] == motAleatoire[i]:
                 print(Back.RED + motJoueur[i], end=" ")
             if motJoueur[i] != motAleatoire[i]:
                 print(Back.BLUE + motJoueur[i], end=" ")
-        print(Style.RESET_ALL)
+            print(Style.RESET_ALL)
+        victoire(motJoueur, motAleatoire, victoire, tour)
     return motJoueur, motAleatoire
 
-verification(motJoueur, motAleatoire,tour,victoire)
+verification(motJoueur, motAleatoire,tour, victoire)
 
 input()
