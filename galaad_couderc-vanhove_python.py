@@ -14,23 +14,10 @@ def regles(tour):
 
 tour = 1
 regles(tour)
-motsPossibles = ["wapiti","gloire","donjon","survie","joyeux","kayaks","humain","ocelot","oiseau"]
+motsPossibles = ["wapiti","gloire","donjon","survie","joyeux","kayaks","humain","ocelot","oiseau","castor","cinema","citron"]
 motAleatoire = random.choice(motsPossibles)
 motJoueur = input("Ecrivez un mot en 6 lettres : ")
-
-def verification(motJoueur):
-    if (len(motJoueur) < 6):
-        input("Ecrivez un mot en 6 lettres : ")
-    if (len(motJoueur) < 6):
-        input("Ecrivez un mot en 6 lettres : ")
-    while (tour < 9):
-        for i in range(0,6):
-            if motJoueur[i] == motAleatoire[i]:
-                print(Back.RED + motJoueur[i], end=" ")
-            if motJoueur[i] != motAleatoire[i]:
-                print(Back.BLUE + motJoueur[i], end=" ")
-verification(motJoueur)
-
+victoire = False
 
 def victoire(motJoueur, motAleatoire, victoire, tour):
     if (motJoueur == motAleatoire):
@@ -38,7 +25,23 @@ def victoire(motJoueur, motAleatoire, victoire, tour):
     else:
         tour = tour + 1
         print("Tour n°",tour)
-        input("Ecrivez un autre mot en 6 lettres : ")
-victoire(motJoueur, motAleatoire, victoire, tour)
+        motJoueur = input("Ecrivez un autre mot en 6 lettres : ") 
+    return motJoueur, motAleatoire
+
+def verification(motJoueur, motAleatoire,tour,victoire):
+    if (len(motJoueur) < 6):
+        input("Ecrivez un mot en 6 lettres : ")
+    if (len(motJoueur) < 6):
+        input("Ecrivez un mot en 6 lettres : ")
+    while (tour < 9 and victoire != True):
+        for i in range(len(motJoueur)):
+            if motJoueur[i] == motAleatoire[i]:
+                print(Back.RED + motJoueur[i], end=" ")
+            if motJoueur[i] != motAleatoire[i]:
+                print(Back.BLUE + motJoueur[i], end=" ")
+        print(Style.RESET_ALL)
+    return motJoueur, motAleatoire
+
+verification(motJoueur, motAleatoire,tour,victoire)
 
 input()
