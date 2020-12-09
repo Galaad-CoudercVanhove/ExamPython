@@ -23,23 +23,22 @@ def verification(motJoueur):
         input("Ecrivez un mot en 6 lettres : ")
     if (len(motJoueur) < 6):
         input("Ecrivez un mot en 6 lettres : ")
+    while (tour < 9):
+        for i in range(0,6):
+            if motJoueur[i] == motAleatoire[i]:
+                print(Back.RED + motJoueur[i], end=" ")
+            if motJoueur[i] != motAleatoire[i]:
+                print(Back.BLUE + motJoueur[i], end=" ")
 verification(motJoueur)
- 
-while (tour < 9):
-    for i in range(0,6):
-        if motJoueur[i] == motAleatoire[i]:
-            print(Back.RED + motJoueur[i],end="")
-        if motJoueur[i] != motAleatoire[i]:
-            print(Back.BLUE + motJoueur[i],end="")
 
 
-def victoire():
+def victoire(motJoueur, motAleatoire, victoire, tour):
     if (motJoueur == motAleatoire):
         victoire = True
     else:
         tour = tour + 1
         print("Tour n°",tour)
         input("Ecrivez un autre mot en 6 lettres : ")
-victoire()
+victoire(motJoueur, motAleatoire, victoire, tour)
 
 input()
